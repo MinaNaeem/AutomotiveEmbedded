@@ -9,6 +9,9 @@ DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/includ
 DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_types.h
 DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h
 DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h
+DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/math.h
+DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_defs.h
+DIOconfig.obj: D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h
 
 ../DIOconfig.c:
 
@@ -27,4 +30,10 @@ D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/_types.h:
 D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/sys/cdefs.h:
 
 D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_types.h:
+
+D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/math.h:
+
+D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_defs.h:
+
+D:/code\ composer/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h:
 

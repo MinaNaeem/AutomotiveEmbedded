@@ -14,14 +14,15 @@
 #define portF 5
 
 
-#define pin0 0x01
-#define pin1 0x02
-#define pin2 0x04
-#define pin3 0x08
-#define pin4 0x10
-#define pin5 0x20
-#define pin6 0x40
-#define pin7 0x80
+#define pin0 1<<0
+#define pin1 1<<1
+#define pin2 1<<2
+#define pin3 1<<3
+#define pin4 1<<4
+#define pin5 1<<5
+#define pin6 1<<6
+#define pin7 1<<7
+
 
 #define output 1
 #define input 0
@@ -31,5 +32,8 @@
 #define alternative 1
 
 void gpio_init_fast(int port,int pinNo, int pinMode,int analog, int pullup, int AlterFn);
+void UART0_en(uint32_t baud);
+void UART1_en(uint32_t baud);
+
 
 
