@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.7                     
 ******************************************************************************
->> Linked Sat Oct 28 12:18:14 2023
+>> Linked Wed Nov  8 00:26:21 2023
 
 OUTPUT FILE NAME:   <TivacAutomotiveEmbeddedProject.out>
 ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000c0d

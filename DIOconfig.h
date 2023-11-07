@@ -23,6 +23,7 @@
 #define pin6 1<<6
 #define pin7 1<<7
 
+typedef unsigned long uint32_t;
 
 #define output 1
 #define input 0
