@@ -164,9 +164,16 @@ void gpio_init_fast(int port,int pinNo, int pinMode,int analog, int pullup, int 
     }
 }
 
-void UART0_en(uint32_t baud)
+void UART0_en(void)
 {
-    uint32_t FBRDvar, IBRDvar;
+    /*
+     * Function name: UART0_en
+     * Inputs: baud
+     * Outputs: None
+     * Reentrancy: None
+     * Synchronous: Yes
+     * Function description: this function initiates the UART0 of Tiva C launch pad.
+     */
 
     // enable clock for UART0 and port A
     SYSCTL_RCGCUART_R |= (1<<0);
@@ -175,10 +182,10 @@ void UART0_en(uint32_t baud)
     // disable UART0
     UART0_CTL_R = 0;
 
-    IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
-    FBRDvar = floor((SYSCTL_RCC_R / (16 * baud) - IBRDvar) * 64 + 0.5);    // CHECK THIS LINE OF CODE****
-    UART0_FBRD_R = FBRDvar;
-    UART0_IBRD_R = IBRDvar;
+//    IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
+//    FBRDvar = floor((SYSCTL_RCC_R / (16 * baud) - IBRDvar) * 64 + 0.5);
+    UART0_FBRD_R = 11;
+    UART0_IBRD_R = 104;
 
     // set line control of UART0
     UART0_LCRH_R = 0x60; // 8-bit data, no parity, one stop bit, no FIFO
@@ -205,18 +212,33 @@ void UART0_en(uint32_t baud)
     UART0_CTL_R = 0x301;
 }
 
-void UART1_en(uint32_t baud)
+void UART0_send(char *message) {
+    int i = 0;
+    // Loop through the message until null terminator
+    while (message[i] != '\0') {
+        // Wait until UART Transmit FIFO is not full
+        while ((UART0_FR_R & 0x20) != 0);
+        // Write the current character to the UART data register
+        UART0_DR_R = message[i];
+        i++;
+    }
+}
+
+
+
+void UART1_en(void)
 {
-    uint32_t FBRDvar, IBRDvar;
+
 
     SYSCTL_RCGCUART_R |= (1<<1);
     SYSCTL_RCGCGPIO_R |= (1<<1);
      UART1_CTL_R = 0;
 
-     IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
-     FBRDvar = floor((SYSCTL_RCC_R / (16 * baud)) - IBRDvar * 64 + 0.5);
-     UART1_FBRD_R = FBRDvar;
-     UART1_IBRD_R = IBRDvar;
+//     IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
+//     FBRDvar = floor((SYSCTL_RCC_R / (16 * baud)) - IBRDvar * 64 + 0.5);
+     UART1_FBRD_R = 11;
+     UART1_IBRD_R = 104;
+
 
     UART1_LCRH_R = 0x60; // 8-bit data, no parity, one stop bit, no FIFO
     UART1_CC_R = 0; // use system clock

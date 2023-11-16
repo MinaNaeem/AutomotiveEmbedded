@@ -23,7 +23,7 @@
 #define pin6 1<<6
 #define pin7 1<<7
 
-typedef unsigned long uint32_t;
+
 
 #define output 1
 #define input 0
@@ -33,8 +33,12 @@ typedef unsigned long uint32_t;
 #define alternative 1
 
 void gpio_init_fast(int port,int pinNo, int pinMode,int analog, int pullup, int AlterFn);
-void UART0_en(uint32_t baud);
-void UART1_en(uint32_t baud);
+void UART0_en(void);
+void UART1_en(void);
+void UART0_send(char *message);
+
+
+
 
 
 
