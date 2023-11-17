@@ -182,8 +182,6 @@ void UART0_en(void)
     // disable UART0
     UART0_CTL_R = 0;
 
-//    IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
-//    FBRDvar = floor((SYSCTL_RCC_R / (16 * baud) - IBRDvar) * 64 + 0.5);
     UART0_FBRD_R = 11;
     UART0_IBRD_R = 104;
 

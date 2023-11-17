@@ -2,7 +2,7 @@
 #define __Scheduler__
 
 
-extern int counter;
+extern unsigned int counter;
 extern int flag;
 
 typedef struct{

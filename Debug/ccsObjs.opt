@@ -1,5 +1,7 @@
 "./DIOconfig.obj"
+"./SPI.obj"
 "./SysTick.obj"
+"./led.obj"
 "./main.obj"
 "./scheduler.obj"
 "./tm4c123gh6pm_startup_ccs.obj"

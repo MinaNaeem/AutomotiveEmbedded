@@ -11,7 +11,9 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./DIOconfig.obj" \
+"./SPI.obj" \
 "./SysTick.obj" \
+"./led.obj" \
 "./main.obj" \
 "./scheduler.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
@@ -145,8 +147,8 @@ TivacAutomotiveEmbeddedProject.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DIOconfig.obj" "SysTick.obj" "main.obj" "scheduler.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "DIOconfig.d" "SysTick.d" "main.d" "scheduler.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "DIOconfig.obj" "SPI.obj" "SysTick.obj" "led.obj" "main.obj" "scheduler.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "DIOconfig.d" "SPI.d" "SysTick.d" "led.d" "main.d" "scheduler.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
