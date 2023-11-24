@@ -1,7 +1,6 @@
 #include "scheduler.h"
 
 
-
 task t_identifier;
 task array[20];
 int task_i=0;

@@ -4,8 +4,10 @@
 #define GET_BIT(REG,BIT) (((REG)&(1<<(BIT)))>>(BIT))
 #define CLOCK_FREQ 16000000 // Assuming a system clock of 16MHz
 #define DESIRED_SPI_CLK_SPEED 1000000 // Desired SPI clock speed (1MHz in this case)
+extern uint32 states(uint8 NEXT_STATE);
 
-volatile int x;
+volatile uint16 x;
+
 void init_SPI0MASTER() {
   
      // Enable the SSI0 module clock
@@ -77,10 +79,13 @@ void init_SPI0SLAVE() {
     
 }
 void SSI0_Handler() {
-
   
-  x=SPI0_receive(15);
+     
+  
+  x=SPI0_receive(var_states);
+  states(x);
 }
+
 uint16 SPI0_receive(uint16 DATA){
     // Wait until receive FIFO is not empty
   while ((SSI0_SR_R & 1)==0);
@@ -95,7 +100,7 @@ uint16 SPI0_send(uint16 msg){
     // Wait until receive FIFO is not empty
   while ((SSI0_SR_R & 1)==0);
     
-    // send data
+    // send msg
     SSI0_DR_R=msg;
     
     // Read received data from the data register
