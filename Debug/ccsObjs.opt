@@ -2,6 +2,7 @@
 "./SPI.obj"
 "./SysTick.obj"
 "./i2c.obj"
+"./input.obj"
 "./led.obj"
 "./main.obj"
 "./msg_states.obj"

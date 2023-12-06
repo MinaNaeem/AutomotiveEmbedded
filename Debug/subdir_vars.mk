@@ -13,6 +13,7 @@ C_SRCS += \
 ../SPI.c \
 ../SysTick.c \
 ../i2c.c \
+../input.c \
 ../led.c \
 ../main.c \
 ../msg_states.c \
@@ -24,6 +25,7 @@ C_DEPS += \
 ./SPI.d \
 ./SysTick.d \
 ./i2c.d \
+./input.d \
 ./led.d \
 ./main.d \
 ./msg_states.d \
@@ -35,6 +37,7 @@ OBJS += \
 ./SPI.obj \
 ./SysTick.obj \
 ./i2c.obj \
+./input.obj \
 ./led.obj \
 ./main.obj \
 ./msg_states.obj \
@@ -46,6 +49,7 @@ OBJS__QUOTED += \
 "SPI.obj" \
 "SysTick.obj" \
 "i2c.obj" \
+"input.obj" \
 "led.obj" \
 "main.obj" \
 "msg_states.obj" \
@@ -57,6 +61,7 @@ C_DEPS__QUOTED += \
 "SPI.d" \
 "SysTick.d" \
 "i2c.d" \
+"input.d" \
 "led.d" \
 "main.d" \
 "msg_states.d" \
@@ -68,6 +73,7 @@ C_SRCS__QUOTED += \
 "../SPI.c" \
 "../SysTick.c" \
 "../i2c.c" \
+"../input.c" \
 "../led.c" \
 "../main.c" \
 "../msg_states.c" \

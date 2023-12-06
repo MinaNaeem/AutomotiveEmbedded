@@ -1,6 +1,5 @@
 #include "inc/tm4c123gh6pm.h"
-#include <stdio.h>
-#include "math.h"
+
 
 typedef unsigned long uint32_t;
 
@@ -164,88 +163,4 @@ void gpio_init_fast(int port,int pinNo, int pinMode,int analog, int pullup, int 
     }
 }
 
-void UART0_en(void)
-{
-    /*
-     * Function name: UART0_en
-     * Inputs: baud
-     * Outputs: None
-     * Reentrancy: None
-     * Synchronous: Yes
-     * Function description: this function initiates the UART0 of Tiva C launch pad.
-     */
-
-    // enable clock for UART0 and port A
-    SYSCTL_RCGCUART_R |= (1<<0);
-    SYSCTL_RCGCGPIO_R |= (1<<0);
-
-    // disable UART0
-    UART0_CTL_R = 0;
-
-    UART0_FBRD_R = 11;
-    UART0_IBRD_R = 104;
-
-    // set line control of UART0
-    UART0_LCRH_R = 0x60; // 8-bit data, no parity, one stop bit, no FIFO
-
-    // set clock source of UART0
-    UART0_CC_R = 0; // use system clock
-
-    // enable port A as GPIO for UART0
-    GPIO_PORTA_CR_R = 0x03; // enable PA0 and PA1
-
-    // set PA0 and PA1 as input
-    GPIO_PORTA_DIR_R &= ~(0x03);
-
-    // enable digital function for PA0 and PA1
-    GPIO_PORTA_DEN_R |= 0x03;
-
-    // select alternate function for PA0 and PA1
-    GPIO_PORTA_AFSEL_R |= 0x03;
-
-    // select UART function for PA0 and PA1
-    GPIO_PORTA_PCTL_R = 0x11;
-
-    // enable UART0, TXE, and RXE
-    UART0_CTL_R = 0x301;
-}
-
-void UART0_send(char *message) {
-    int i = 0;
-    // Loop through the message until null terminator
-    while (message[i] != '\0') {
-        // Wait until UART Transmit FIFO is not full
-        while ((UART0_FR_R & 0x20) != 0);
-        // Write the current character to the UART data register
-        UART0_DR_R = message[i];
-        i++;
-    }
-}
-
-
-
-void UART1_en(void)
-{
-
-
-    SYSCTL_RCGCUART_R |= (1<<1);
-    SYSCTL_RCGCGPIO_R |= (1<<1);
-     UART1_CTL_R = 0;
-
-//     IBRDvar = floor(SYSCTL_RCC_R / (16 * baud));
-//     FBRDvar = floor((SYSCTL_RCC_R / (16 * baud)) - IBRDvar * 64 + 0.5);
-     UART1_FBRD_R = 11;
-     UART1_IBRD_R = 104;
-
-
-    UART1_LCRH_R = 0x60; // 8-bit data, no parity, one stop bit, no FIFO
-    UART1_CC_R = 0; // use system clock
-    GPIO_PORTB_CR_R = 0x03; // enable PB0 and PB1
-    GPIO_PORTB_DIR_R &= ~(0x03);
-    GPIO_PORTB_DEN_R |= 0x03;
-    GPIO_PORTB_AFSEL_R |= 0x03;
-    GPIO_PORTB_PCTL_R = 0x11;
-    UART1_CTL_R = 0x301;
-
-}
 

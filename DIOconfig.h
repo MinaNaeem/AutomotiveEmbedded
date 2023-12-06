@@ -5,7 +5,7 @@
  *      Author: Mina
  */
 
-
+#include "types.h"
 #define portA 0
 #define portB 1
 #define portC 2
@@ -14,14 +14,14 @@
 #define portF 5
 
 
-#define pin0 1<<0
-#define pin1 1<<1
-#define pin2 1<<2
-#define pin3 1<<3
-#define pin4 1<<4
-#define pin5 1<<5
-#define pin6 1<<6
-#define pin7 1<<7
+#define pin0 0
+#define pin1 1
+#define pin2 2
+#define pin3 3
+#define pin4 4
+#define pin5 5
+#define pin6 6
+#define pin7 7
 
 
 
@@ -33,9 +33,6 @@
 #define alternative 1
 
 void gpio_init_fast(int port,int pinNo, int pinMode,int analog, int pullup, int AlterFn);
-void UART0_en(void);
-void UART1_en(void);
-void UART0_send(char *message);
 
 
 
